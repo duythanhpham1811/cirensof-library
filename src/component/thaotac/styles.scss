@@ -1,0 +1,27 @@
+
+.mythaotac{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    &__delete{
+        padding: 10px;
+        &__title{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+        &__button{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            p{
+                font-size: 16px;
+                color: #1976d2;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+    }
+}
