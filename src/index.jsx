@@ -12,3 +12,5 @@ export * from './component/search';
 export * from './component/textfield-area';
 export * from './component/thaotac';
 export * from './component/thongbao';
+export * from './component/table';
+export * from './component/helper';
