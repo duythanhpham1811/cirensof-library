@@ -1,4 +1,10 @@
 # cirensof-library
+
+# thêm file .npmrc vào project trước khi cài đặt
+    registry=https://registry.npmjs.org/
+    @duythanhpham1811:registry=https://npm.pkg.github.com/
+    //npm.pkg.github.com/:_authToken=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
+
 # các thư viện cần cài đặt
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
