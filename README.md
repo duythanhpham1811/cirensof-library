@@ -25,6 +25,7 @@
     "ag-grid-enterprise": "^28.1.0",
     "ag-grid-react": "^28.1.0",
     "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "moment": "^2.29.4",
     "react-bootstrap": "^2.5.0"
