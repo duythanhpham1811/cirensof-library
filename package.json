@@ -1,6 +1,6 @@
 {
   "name": "@duythanhpham1811/cirensof-library",
-  "version": "1.0.12",
+  "version": "1.0.20",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -48,7 +48,8 @@
     "ag-grid-react": "^28.1.0",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-bootstrap": "^2.5.0"
   },
   "dependencies": {}
 }
