@@ -27,7 +27,7 @@ export const MyPagination = (props) => {
 
   return (
     <div className="table__pagination">
-         <span>Bản ghi từ 1 đến {pagesize} trên {props.total} kết quả</span>
+        <span>Bản ghi từ {pagesize * (props.page -1) + 1} đến {pagesize * props.page < props.total ? pagesize * props.page : props.total} trên {props.total} kết quả</span>
         <div style={{display:"flex",alignItems:"center"}}>
             <div style={{ width: "105px"}}>
                 <FormControl fullWidth>
