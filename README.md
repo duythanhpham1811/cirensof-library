@@ -27,3 +27,8 @@
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "moment": "^2.29.4"
+## lưu ý
+    component MyTable : cần truyền selector có initialState : autofit 
+                        (để sizeColumnsToFit table khi giao diện thay đổi size)
+               
+                        
