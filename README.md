@@ -26,9 +26,46 @@
     "ag-grid-react": "^28.1.0",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-bootstrap": "^2.5.0"
+    
 ## lưu ý
-    component MyTable : cần truyền selector có initialState : autofit 
-                        (để sizeColumnsToFit table khi giao diện thay đổi size)
+    - Để sử dụng component table và component thao tác cần thêm vào redux 1 reducer : tableReducer
+    - Sử dụng createSlice của toolkit để tạo tableReducer : 
+            const tableReducer = createSlice({
+                name: "table",
+                initialState: {
+                    autofit:true,
+                    detail:false,
+                    fullsize:false
+                },
+                reducers: {
+                    autofit: (state, action) =>{
+                        state.autofit = !state.autofit
+                    },
+                    opendetail: (state, action) =>{
+                        state.detail = true  
+                    },
+                    offdetail: (state, action) =>{
+                        state.detail = false
+                    },
+                    openfullsize: (state, action) =>{
+                        state.fullsize = true
+                    },
+                    closefullsize: (state, action) =>{
+                        state.fullsize = false
+                    },
+                    handlefullsize: (state, action) =>{
+                        state.fullsize = !state.fullsize
+                    },
+                },
+            });
+     - Thêm: <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+              integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+              crossorigin="anonymous"
+            />
+       vào file index.html (thư mục public dự án) vì có sử dụng react-bootstrap
                
                         
