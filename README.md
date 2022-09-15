@@ -38,7 +38,8 @@
                 initialState: {
                     autofit:true,
                     detail:false,
-                    fullsize:false
+                    fullsize:false,
+                    openDraw:true,
                 },
                 reducers: {
                     autofit: (state, action) =>{
@@ -58,6 +59,9 @@
                     },
                     handlefullsize: (state, action) =>{
                         state.fullsize = !state.fullsize
+                    },
+                    handleOpenDraw: (state, action) =>{
+                        state.openDraw = !state.openDraw
                     },
                 },
             });
