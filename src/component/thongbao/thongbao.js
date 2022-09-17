@@ -1,65 +1,31 @@
-import { Button } from "@mui/material";
-import React, { Fragment, useEffect } from "react";
-
-import ClearIcon from "@mui/icons-material/Clear";
-
-export function MyThongBao({
-  enqueueSnackbar,
-  closeSnackbar,
-  code,
-  message,
-  type,
-}) {
-
-  const data = check(code,message,type);
-
-  const action = (key) => (
-    <Fragment>
-      <Button
-        onClick={() => {
-          closeSnackbar(key);
-        }}
-      >
-        <ClearIcon style={{ color: "white" }} />
-      </Button>
-    </Fragment>
-  );
-
-  enqueueSnackbar(data.message, {
-    action,
-    variant: type ? type :data.variant,
-    autoHideDuration: 2000,
-    anchorOrigin: {
-      vertical: "bottom",
-      horizontal: "right",
-    },
-  });
-}
-
-function check (code,message,type){
-  if(code){
-    switch (code) {
-      case 299:
-        return ({variant :"warning", message: message ? message : "Có lỗi xảy ra"})
-      case 500:
-        return ({variant :"error", message: message ? message : "Có lỗi xảy ra"})
-      case 400:
-        return ({variant :"error", message : "Cú pháp không hợp lệ"})
-      case 401:
-        return ({variant :"error", message : "Không xác thực"})
-      case 404:
-        return ({variant :"error", message : "Không tìm thấy dữ liệu"})
-      case 408:
-        return ({variant :"error", message : "Hết thời gian yêu cầu máy chủ"})
-      case 502:
-        return ({variant :"error", message : "Hệ thống không phản hồi"})
-      case 503:
-        return ({variant :"error", message : "Máy chủ không phản hồi do quá thời gian"})
-      default:
-        return ({variant :"error", message: message ? message : "Có lỗi xảy ra"})
-    }
-  }
-  else{
-    return ({variant :type, message: message})
-  }
+import { toast } from "react-toastify"
+import "./styles.scss"
+export const ThongBao = ({code,message}) =>{
+    if(code){
+        switch (code) {
+         case 200:
+            return toast.success(message ? message : "Thành công")
+          case 299:
+            return toast.warn(message ? message : "Có lỗi xảy ra")
+          case 500:
+            return toast.error(message ? message : "Có lỗi xảy ra")
+          case 400:
+            return toast.error("Cú pháp không hợp lệ")
+          case 401:
+            return toast.error("Không xác thực")
+          case 404:
+            return toast.error("Không tìm thấy dữ liệu")
+          case 408:
+            return toast.error("Hết thời gian yêu cầu máy chủ")
+          case 502:
+            return toast.error("Hệ thống không phản hồi")
+          case 503:
+            return toast.error("Máy chủ không phản hồi do quá thời gian")
+          default:
+            return toast.error(message ? message : "Có lỗi xảy ra")
+        }
+      }
+      else{
+        return toast.error(message ? message : "Có lỗi xảy ra")
+      }
 }

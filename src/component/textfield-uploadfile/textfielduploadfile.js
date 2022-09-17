@@ -24,7 +24,7 @@ export const MyTextFieldUploadFile = React.forwardRef(({
   ...rest
 }, ref) => {
   return (
-    <div style={{ width: width ? width : "100%", paddingBottom: 8 }}>
+    <div style={{ width: width ? width : "100%", paddingBottom: FontSize.DivLabelMarginBottom}}>
       {required ?
         <Typography sx={{ marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel }} variant="body2" color={helperText || errors ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :

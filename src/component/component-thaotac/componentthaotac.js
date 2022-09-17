@@ -28,7 +28,7 @@ export function MyComponentThaoTac(props) {
 
   return (
     <Offcanvas show={show} scroll={false} backdrop={false} placement={"end"} 
-      style={{width:tableselector.fullsize ? "calc(100vw - 220px)" : "600px",
+      style={{width:tableselector.fullsize ? props.widthFullSize : props.width,
     }}>
       <Offcanvas.Header closeButton>
         <Tooltip title="Đóng">

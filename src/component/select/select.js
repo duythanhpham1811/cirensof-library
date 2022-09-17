@@ -27,6 +27,8 @@ export const MySelect = React.forwardRef(({
   value,
   label,
   name,
+  tooltip = false,
+  tooltipContent,
   options,
   placeholder,
   errors,
@@ -40,11 +42,11 @@ export const MySelect = React.forwardRef(({
 
 
   return (
-    <div style={{ width: width, paddingBottom: offPaddingBottom ? "0px !important" : 8}}>
+    <div style={{ width: width, paddingBottom: offPaddingBottom ? "0px !important" : FontSize.DivLabelMarginBottom}}>
       {required ?
-        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel}} variant="body2" color={helperText ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
+        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel}} variant="body2" color={helperText || errors? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :
-        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={helperText ? "#f44335" : "#000000b3"}>{label}</Typography>
+        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={helperText || errors? "#f44335" : "#000000b3"}>{label}</Typography>
       }
       <Autocomplete
         value={value}
@@ -83,7 +85,9 @@ export const MySelect = React.forwardRef(({
                 </Typography>
               </li>
               }
+             
             </>
+           
           );
         }}
         sx={{
@@ -107,6 +111,12 @@ export const MySelect = React.forwardRef(({
             helperText={helperText || errors}
             placeholder={placeholder}
             sx={{
+              ".MuiFormHelperText-root": {
+                color: '#f44335 !important',
+                marginTop: "5px !important",
+                paddingLeft: "5px !important",
+                fontSize: "13px",
+              },
               backgroundColor: disabled ? Appcolors.backgroundDisabled : "white",
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {

@@ -23,7 +23,7 @@ export const MySelectCheckBox = React.forwardRef(({
   ...rest
 }, ref) => {
   return (
-    <div style={{ width: width, paddingBottom: 8 }}>
+    <div style={{ width: width, paddingBottom: FontSize.DivLabelMarginBottom}}>
        {required ?
         <Typography sx={{ marginBottom: FontSize.LabelMarginBottom ,fontSize: FontSize.textFieldLabel}} variant="body2" color={helperText ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :

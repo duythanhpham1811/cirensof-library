@@ -16,15 +16,15 @@ export const MyTextField = React.forwardRef(({
   ...rest
 }, ref) => {
   return (
-    <div style={{ width: width ? width : "100%", paddingBottom: 8 }}>
+    <div style={{ width: width ? width : "100%", paddingBottom: FontSize.DivLabelMarginBottom}}>
       {required ?
-        <Typography sx={{ marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel }} variant="body2" color={helperText || errors? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
+        <Typography sx={{ marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel }} variant="body2" color={errors? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :
-        <Typography sx={{ marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel, }} variant="body2" color={helperText  || errors ? "#f44335" : "#000000b3"}>{label}</Typography>
+        <Typography sx={{ marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel, }} variant="body2" color={errors ? "#f44335" : "#000000b3"}>{label}</Typography>
       }
       <TextField
         {...rest}
-        helperText={helperText || errors}
+        helperText={errors && helperText}
         variant="outlined"
         type={type ? type : "search"}
         fullWidth
@@ -32,7 +32,7 @@ export const MyTextField = React.forwardRef(({
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {helperText || errors ? <ReportOutlinedIcon style={{ fontSize: "16px", color: "#f44335" }} /> : <></>}
+              {errors ? <ReportOutlinedIcon style={{ fontSize: "16px", color: "#f44335" }} /> : <></>}
             </InputAdornment>
           ),
           sx: {
@@ -58,13 +58,13 @@ export const MyTextField = React.forwardRef(({
           },
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
-              borderColor: helperText || errors ? "#e91e63 !important" : "#cbd5e0 !important"
+              borderColor: errors ? "#e91e63 !important" : "#cbd5e0 !important"
             },
             '&:hover fieldset': {
               borderColor: "#a0a0a0 !important"
             },
             '&.Mui-focused fieldset': {
-              border: helperText || errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
+              border: errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
             },
           },
         }}
