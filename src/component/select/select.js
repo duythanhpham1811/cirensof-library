@@ -35,18 +35,18 @@ export const MySelect = React.forwardRef(({
   height,
   disabled,
   offPaddingBottom,
-  disableClearable =false,
+  disableClearable = false,
   defaultValue,
   ...rest
 }, ref) => {
 
 
   return (
-    <div style={{ width: width, paddingBottom: offPaddingBottom ? "0px !important" : FontSize.DivLabelMarginBottom}}>
+    <div style={{ width: width, paddingBottom: offPaddingBottom ? "0px !important" : FontSize.DivLabelMarginBottom }}>
       {required ?
-        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel}} variant="body2" color={helperText || errors? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
+        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important", fontSize: FontSize.textFieldLabel }} variant="body2" color={errors ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :
-        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={helperText || errors? "#f44335" : "#000000b3"}>{label}</Typography>
+        <Typography sx={{ marginBottom: label ? FontSize.LabelMarginBottom : "0px !important", fontSize: FontSize.textFieldLabel }} variant="body2" color={errors ? "#f44335" : "#000000b3"}>{label}</Typography>
       }
       <Autocomplete
         value={value}
@@ -62,32 +62,32 @@ export const MySelect = React.forwardRef(({
         renderOption={(props, option, { selected }) => {
           return (
             <>
-              {tooltip ? 
-              <HtmlTooltip placement="left" title={
-                <div {...props}>
-                  {tooltipContent && tooltipContent.map((e)=>(
-                    <div>
-                      {option[e.content] !== null ? <Typography color={"#344767e3"} sx={{fontSize:"14px"}}><b>{e.title}</b> : {option[e.content]}</Typography> : ""}
-                    </div>
-                  ))}
-                </div>
-              }>
+              {tooltip ?
+                <HtmlTooltip placement="left" title={
+                  <div {...props}>
+                    {tooltipContent && tooltipContent.map((e) => (
+                      <div>
+                        {option[e.content] !== null ? <Typography color={"#344767e3"} sx={{ fontSize: "14px" }}><b>{e.title}</b> : {option[e.content]}</Typography> : ""}
+                      </div>
+                    ))}
+                  </div>
+                }>
+                  <li {...props}>
+                    <Typography color={"#344767e3"} sx={{ fontSize: "14px" }}>
+                      {option[name]}
+                    </Typography>
+                  </li>
+                </HtmlTooltip>
+                :
                 <li {...props}>
-                  <Typography color={"#344767e3"} sx={{fontSize:"14px"}}>
+                  <Typography color={"#344767e3"} sx={{ fontSize: "14px" }}>
                     {option[name]}
                   </Typography>
                 </li>
-              </HtmlTooltip>
-              :
-              <li {...props}>
-                <Typography color={"#344767e3"} sx={{fontSize:"14px"}}>
-                  {option[name]}
-                </Typography>
-              </li>
               }
-             
+
             </>
-           
+
           );
         }}
         sx={{
@@ -108,7 +108,7 @@ export const MySelect = React.forwardRef(({
         disabled={disabled}
         renderInput={(params) => (
           <TextField {...params}
-            helperText={helperText || errors}
+            helperText={errors && helperText}
             placeholder={placeholder}
             sx={{
               ".MuiFormHelperText-root": {
@@ -120,22 +120,22 @@ export const MySelect = React.forwardRef(({
               backgroundColor: disabled ? Appcolors.backgroundDisabled : "white",
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: helperText || errors ? "#e91e63 !important" : "#cbd5e0 !important"
+                  borderColor: errors ? "#e91e63 !important" : "#cbd5e0 !important"
                 },
                 '&:hover fieldset': {
                   borderColor: "#a0a0a0 !important"
                 },
                 '&.Mui-focused fieldset': {
-                  border: helperText || errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
+                  border: errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
                 },
               },
-              ".MuiOutlinedInput-input.Mui-disabled":{
+              ".MuiOutlinedInput-input.Mui-disabled": {
                 "-webkit-text-fill-color": Appcolors.textFiledDisabled
               }
             }}
             variant="outlined" />
         )}
-        { ...rest}
+        {...rest}
       />
     </div>
   );

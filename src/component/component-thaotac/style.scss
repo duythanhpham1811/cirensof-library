@@ -1,18 +1,47 @@
 
-.offcanvas{
-    top: 50px !important;
+
+
+.component-chitiet{
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 48px;
+    right: 0px;
+    background-color: white;
+    overflow: auto;
+    z-index: 2;
     transition:all .3s ease-in-out;
+    border-left: 1px solid #0000002d;
+    // box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px, rgb(0 0 0 / 4%) 0px 16px 24px 2px, rgb(0 0 0 / 12%) 0px 6px 30px 5px;
+    &__thaotac{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 10px;
+    }
+    &__content{
+        padding: 0px 15px 20px 15px;
+    }
 }
-.offcanvas-header{
-    justify-content :start;
-    gap: 5px;
-    padding: 10px 0px 0px 12px;
-}
-.offcanvas-body{
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-}
-.offcanvas-header .btn-close{
-    display: none;
-}
+
+//bản cũ
+
+// .offcanvas{
+//     top: 50px !important;
+//     transition:all .3s ease-in-out;
+// }
+// .offcanvas-header{
+//     justify-content :start;
+//     gap: 5px;
+//     padding: 10px 0px 0px 12px;
+// }
+// .offcanvas-body{
+//     padding-left: 20px;
+//     padding-right: 20px;
+//     padding-top: 10px;
+// }
+// .offcanvas-header .btn-close{
+//     display: none;
+// }
+

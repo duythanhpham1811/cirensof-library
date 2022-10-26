@@ -8,6 +8,8 @@ export const MyButton = React.forwardRef(({
   disabled,
   color,
   icon,
+  width,
+  fontSizeIcon,
   txt,
   handleUploadfile,
   uploadfile,
@@ -22,13 +24,16 @@ export const MyButton = React.forwardRef(({
         '&.MuiButton-containedPrimary': {
           backgroundColor: color ? color : '#169ad5',
           fontSize: '11px',
+          minWidth: width,
           color: "#ffffff",
           textTransform: "none",
           boxShadow: "none",
-
+        },
+        ".MuiButton-startIcon>*:nth-of-type(1)":{
+          fontSize: fontSizeIcon && fontSizeIcon
         },
         "& .MuiButton-endIcon": { paddingBottom: '0px' },
-        "& .MuiButton-startIcon": { paddingBottom: '0px', marginRight: marginRightStartIcon ? marginRightStartIcon : "5px" }
+        "& .MuiButton-startIcon": { paddingBottom: '0px', marginRight: marginRightStartIcon ? marginRightStartIcon : "3px"}
       }}
       style={{ height: height ? height : '26px' }}
       variant="contained" size="small"

@@ -1,0 +1,13 @@
+.mymodal{
+    &_header{
+        padding: 8px 16px;
+        z-index: 99999;
+    }
+    &_body{
+        padding: 8px 16px;
+    }
+    &_title{
+        font-size: 18px;
+        color: #000000de;
+    }
+}

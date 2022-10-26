@@ -32,9 +32,9 @@ export  const MySelectTime = (props) => {
   return (
     <LocalizationProvider adapterLocale={vi} dateAdapter={AdapterDateFns}>
       {props.required ?
-        <Typography sx={{ marginBottom: props.label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={props.helperText || props.errors ? "#f44335" : "#000000b3"}>{props.label}<span style={{ color: "red" }}> *</span></Typography>
+        <Typography sx={{ marginBottom: props.label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={props.errors ? "#f44335" : "#000000b3"}>{props.label}<span style={{ color: "red" }}> *</span></Typography>
         :
-        <Typography sx={{ marginBottom: props.label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={props.helperText || props.errors ? "#f44335" : "#000000b3"}>{props.label}</Typography>
+        <Typography sx={{ marginBottom: props.label ? FontSize.LabelMarginBottom : "0px !important",fontSize: FontSize.textFieldLabel }} variant="body2" color={props.errors ? "#f44335" : "#000000b3"}>{props.label}</Typography>
       }
       {
         props.views && props.views.length > 0 ?
@@ -51,7 +51,7 @@ export  const MySelectTime = (props) => {
             onChange={handleChange}
             renderInput={(params) => (
               <TextField
-                helperText={props.helperText || props.errors}
+                helperText={props.errors && props.helperText}
                 {...params}
                 onBlur={props.handleOnBlur}
                 onSubmit={props.handleOnSubmit}
@@ -77,13 +77,13 @@ export  const MySelectTime = (props) => {
                   '& .MuiOutlinedInput-root': {
                     height: props.height ? props.height : "33px",
                     '& fieldset': {
-                      borderColor: props.helperText || props.errors ? "#e91e63 !important" : "#cbd5e0 !important"
+                      borderColor: props.errors ? "#e91e63 !important" : "#cbd5e0 !important"
                     },
                     '&:hover fieldset': {
                       borderColor: "#a0a0a0 !important"
                     },
                     '&.Mui-focused fieldset': {
-                      border: props.helperText || props.errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
+                      border: props.errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
                     },
                   },
                   "& .MuiOutlinedInput-input.Mui-disabled": {
@@ -106,7 +106,7 @@ export  const MySelectTime = (props) => {
             onChange={handleChange}
             renderInput={(params) => (
               <TextField
-                helperText={props.helperText || props.errors}
+                helperText={props.errors && props.helperText}
                 {...params}
                 onBlur={props.handleOnBlur}
                 onSubmit={props.handleOnSubmit}
@@ -132,13 +132,13 @@ export  const MySelectTime = (props) => {
                   '& .MuiOutlinedInput-root': {
                     height: props.height ? props.height : "33px",
                     '& fieldset': {
-                      borderColor: props.helperText || props.errors ? "#e91e63 !important" : "#cbd5e0 !important"
+                      borderColor: props.errors ? "#e91e63 !important" : "#cbd5e0 !important"
                     },
                     '&:hover fieldset': {
                       borderColor: "#a0a0a0 !important"
                     },
                     '&.Mui-focused fieldset': {
-                      border: props.helperText || props.errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
+                      border: props.errors ? "1px solid #e91e63 !important" : "1px solid #1a73e8 !important"
                     },
                   },
                   "& .MuiOutlinedInput-input.Mui-disabled": {

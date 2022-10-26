@@ -22,11 +22,13 @@ export function MyTable({
   handleCellEditingStopped,
   onCellValueChanged,
   rowClassRules,
+  suppressRowHoverHighlight = false,
   getRowStyle,
   setGridApiProp,
   singleClickEdit = false,
   onRowClicked,
   tableSelector,
+  borderLeft = false, 
   data,
   ...props
 }) {
@@ -90,7 +92,7 @@ export function MyTable({
       wrapText: true,
       autoHeight: autoHeight,
       minWidth: 50,
-      cellStyle: { fontSize:"13px", fontWeight: "400",fontFamily:"", color:"#344767", lineHeight: "1.5", display: "flex", alignItems: "center", paddingTop: '8px', paddingBottom: '8px' },
+      cellStyle: { fontSize:"13px", borderLeft: borderLeft && "1px solid #eeeeed",fontWeight: "400",fontFamily:"", color:"#344767", lineHeight: "1.5", display: "flex", alignItems: "center", paddingTop: '8px', paddingBottom: '8px' },
       headerClass: 'my-header-class',
       ...props
     };
@@ -129,6 +131,7 @@ export function MyTable({
           rowClassRules={rowClassRules}
           stopEditingWhenCellsLoseFocus={true}
           onRowClicked={onRowClicked}
+          suppressRowHoverHighlight={suppressRowHoverHighlight}
         ></AgGridReact>
         {data.length !== 0 && checkPagination === true ?
           <MyPagination

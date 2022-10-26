@@ -13,18 +13,19 @@ export const MyTextFieldArea = React.forwardRef(({
   height,
   disabled,
   type,
+  errors,
   ...rest
 }, ref) => {
   return (
     <div style={{ width: width, paddingBottom: FontSize.DivLabelMarginBottom }}>
       {required ?
-        <Typography sx={{  marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel  }} variant="body2" color={helperText ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
+        <Typography sx={{  marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel  }} variant="body2" color={errors ? "#f44335" : "#000000b3"}>{label}<span style={{ color: "red" }}> *</span></Typography>
         :
-        <Typography sx={{  marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel  }} variant="body2" color={helperText ? "#f44335" : "#000000b3"}>{label}</Typography>
+        <Typography sx={{  marginBottom: FontSize.LabelMarginBottom, fontSize: FontSize.textFieldLabel  }} variant="body2" color={errors ? "#f44335" : "#000000b3"}>{label}</Typography>
       }
       <TextField
         {...rest}
-        helperText={helperText}
+        helperText={errors && helperText}
         variant="outlined"
         multiline
         disabled={disabled}
@@ -34,7 +35,7 @@ export const MyTextFieldArea = React.forwardRef(({
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              {helperText && <ReportOutlinedIcon style={{ fontSize: "16px", color: "#f44335" }} />}
+              {errors && <ReportOutlinedIcon style={{ fontSize: "16px", color: "#f44335" }} />}
             </InputAdornment>
           ),
           sx: {
@@ -54,9 +55,9 @@ export const MyTextFieldArea = React.forwardRef(({
             fontSize:"13px",
           },
           '& .MuiOutlinedInput-root': {
-            padding:"12px 0px 12px 15px!important" ,
+            padding:"12px 15px 12px 15px!important" ,
             '& fieldset': {
-              borderColor: helperText ? "#e91e63 !important" : "#cbd5e0 !important"
+              borderColor: errors ? "#e91e63 !important" : "#cbd5e0 !important"
             },
             '&:hover fieldset': {
               borderColor: "#a0a0a0 !important"
